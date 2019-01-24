@@ -82,7 +82,7 @@ class AdminProtocolClient(Poller):
     def connect_to_vspc(self):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.connect((self.host, self.admin_port))
-        sockfile = s.makefile()
+        sockfile = s.makefile(mode='rwb')
 
         unpickler = pickle.Unpickler(sockfile)
 
